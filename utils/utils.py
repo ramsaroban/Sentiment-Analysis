@@ -42,6 +42,6 @@ def clean_data(texts):
 	#return cleaned data as tokens
 	return tokens
 				 
-text = load_data('utils.txt')
-texts = clean_data(text)		 
-print(texts)
+#text = load_data('utils.txt')
+#texts = clean_data(text)		 
+#print(texts)
