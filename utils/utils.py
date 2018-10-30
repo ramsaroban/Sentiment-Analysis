@@ -41,7 +41,40 @@ def clean_data(texts):
 
 	#return cleaned data as tokens
 	return tokens
-				 
+	
+
+# Processing of the data, read all training data from the given path
+def process_data(path,is_train):
+	#A list type of documents which will store all the data after processing it.
+	documents = list()
+	sample = 0
+	#Walk through all the files in the folder\
+	for f_name in listdir(path):
+		#Skip any reviews in the test set
+		if is_train and f_name.startswith('cv9'):
+			continue
+		if not is_train and not f_name.startswith('cv9'):
+			continue
+		#Generate full path for the files
+		f_path = path +'/'+f_name
+		
+		#load the data 
+		l_data = load_data(f_path)
+		
+		#Clean the data
+		c_data = clean_data(l_data)
+		
+		#add all data to the main list 
+		documents.append(c_data)
+		sample += 1;
+	return documents,sample	 	
+
+#Save data to a file
+def save_data(dataset,file_name):
+	#dump data to the file given as argument
+	dump(dataset,open(file_name,'wb'))
+	print("Saved: %s" %file_name)
+	
 #text = load_data('utils.txt')
 #texts = clean_data(text)		 
 #print(texts)
