@@ -27,6 +27,3 @@ model = define_CNN_model(length, vocab_size)
 model.fit([trainX,trainX,trainX],array(train_Labeles), epochs = 10, batch_size = 16)
 #Save the model
 model.save('model.h5') 
-
-#Load model
-model = load_model('model.h5')
