@@ -75,6 +75,3 @@ def save_data(dataset,file_name):
 	dump(dataset,open(file_name,'wb'))
 	print("Saved: %s" %file_name)
 	
-#text = load_data('utils.txt')
-#texts = clean_data(text)		 
-#print(texts)
